@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import config from '../config';
 
 class EditSightingForm extends React.Component {
     constructor(props) {
@@ -10,6 +11,33 @@ class EditSightingForm extends React.Component {
         this.animal = React.createRef();
         this.notes = React.createRef();
         this.photos = React.createRef();
+    }
+
+    componentDidMount() {
+        // GET a sighting by id
+        const { id } = this.props.match.params;
+        fetch(config.API_BASE_URL + `/api/sightings/${id}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
+            .then(results => {
+                this.setState({
+                    date: results.date,
+                    location: results.location,
+                    animal: results.animal,
+                    notes: results.notes,
+                    photos: results.photos
+                })
+            })
+            .catch(error => this.setState({ error }))
     }
 
     handleUpdate = e => {
@@ -23,12 +51,48 @@ class EditSightingForm extends React.Component {
             photos: this.photos.current.value,
             id
         };
- 
+
+        // PATCH to update a sighting
+        fetch(config.API_BASE_URL + `/api/sightings/${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(updatedSighting),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
+            .then(updatedSighting => {
+                this.props.onUpdateSighting(updatedSighting)
+                this.props.history.push("/list")
+            })
+            .catch(error => this.setState({ error }))
     }
     
     handleDelete = e => {
         e.preventDefault();
         const { id } = this.props.match.params;
+        // DELETE a sighting
+        fetch(config.API_BASE_URL + `/api/sightings/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res
+            })
+            .then(this.props.history.push("/list"))
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     render() {

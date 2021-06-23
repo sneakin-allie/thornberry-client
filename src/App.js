@@ -69,7 +69,7 @@ class App extends React.Component {
             <Route 
               path="/"
               component={Nav}
-          />
+            />
           </nav>
           <header>
             <Header />

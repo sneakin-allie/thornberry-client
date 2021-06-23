@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import config from '../config';
 
 class AddSightingForm extends React.Component {
     constructor(props) {
@@ -25,7 +26,6 @@ class AddSightingForm extends React.Component {
         e.preventDefault();
 
         const { date, location, animal, notes, photos } = e.target;
-
         const newSighting = { 
             date: date.value, 
             location: location.value, 
@@ -34,6 +34,25 @@ class AddSightingForm extends React.Component {
             photos: photos.value,
             email: this.props.userInfo.email
         };
+        // POST for a new sighting
+        fetch(config.API_BASE_URL + `/api/sightings`, {
+            method: 'POST',
+            body: JSON.stringify(newSighting),
+            headers: {
+                "content-type": "application/json"
+            }
+        })
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
+            .then(result => {
+                this.props.onAddSighting(result)
+                this.props.history.push('/list')
+            })
+            .catch(error => this.setState({ errorMessage: "Invalid credentials" }))
     }
 
     render() {

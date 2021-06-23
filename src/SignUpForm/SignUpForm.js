@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import config from '../config';
 
 class SignUpForm extends React.Component {
     constructor(props) {
@@ -54,6 +55,26 @@ class SignUpForm extends React.Component {
             this.setState({
                 errorMessage: "Password must contain at least one number"
             })
+        } else {
+            // POST for new users
+            fetch(config.API_BASE_URL + `/api/users/new`, {
+                method: 'POST',
+                body: JSON.stringify(newUser),
+                headers: {
+                    'content-type': 'application/json',
+                }
+            })
+                .then(res => {
+                    if(!res.ok) {
+                        throw new Error(res.status)
+                    }
+                    return res.json()
+                })
+                .then(result => {
+                    this.props.onSignUp(result);
+                    this.props.history.push('/add')
+                })
+                .catch(error => this.setState({ error }))
         }
     }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import config from '../config';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -34,12 +35,31 @@ class LoginForm extends React.Component {
             this.setState({
                 errorMessage: "Password is required"
             })
+        } else {
+            // POST for existing users
+            fetch(config.API_BASE_URL + `/api/users`, {
+                method: 'POST',
+                body: JSON.stringify( existingUser ),
+                headers: {
+                    'content-type': 'application/json',
+                }
+            })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(res.status)
+                    }
+                    return res.json()
+                })
+                .then((result) => {
+                    this.props.onLogin(result)
+                    this.props.history.push("/list")
+                })
+                .catch(error => this.setState({ errorMessage: "Invalid credentials" }))
         }
         
     }
 
     render() {
-
         return (
             <div className="login">
                 <h3>Existing User? Log In!</h3>
