@@ -15,7 +15,6 @@ class App extends React.Component {
     this.state = {
       sightings: [],
       userInfo: {},
-      // error: null Do I need to add this?
     }
   }
 
@@ -92,12 +91,11 @@ class App extends React.Component {
                 <SightingsList 
                   {...routeProps} 
                   userInfo={this.state.userInfo}
+                  sightings={this.state.sightings}
                   onSignUp={this.handleSignUp} 
                   onLogin={this.handleLogin}
-                  sightings={this.state.sightings}
                   onAddSighting={this.handleAddSighting}
                   onUpdateSighting={this.handleUpdateSighting}
-                  onDeleteSighting={this.handleDeleteSighting}
                   onDisplaySightings={this.handleDisplaySightings}
                 />
               } 

@@ -102,9 +102,9 @@ class EditSightingForm extends React.Component {
         )
 
         return (
-            <div className="edit-sighting">
+            <div className="Edit-sighting">
                 <h3>Edit Sighting</h3>
-                    <form className="edit-sighting-form">
+                    <form className="Edit-sighting-form">
                         <label htmlFor="date">Date:</label>
                         <input 
                             type="date" 

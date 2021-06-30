@@ -1,7 +1,7 @@
 import React from 'react';
 import SightingItem from '../SightingItem/SightingItem';
 import './SightingsList.css';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import config from '../config';
 
 class SightingsList extends React.Component {
@@ -34,9 +34,21 @@ class SightingsList extends React.Component {
 
     render() {
         return (
-            <div className="sightings">
-                <h3>Sighting Collection</h3>
-                    <ul className="sightings-list">
+            <div className="Sightings">
+                <h3 className="Welcome-banner"><i>Welcome, {this.props.userInfo.firstName}!</i></h3>
+                <h3 className="Sightings-banner">Sightings</h3>
+                    <div className="Add-new-sighting-button">
+                        <Link 
+                            to={{
+                                pathname: `/add`
+                            }}
+                        >
+                            <button type="button">
+                                Add New Sighting
+                            </button>
+                        </Link>
+                    </div>
+                    <ul className="Sightings-list">
                         {this.props.sightings.map((sighting, i) =>
                             <SightingItem
                                 key={i}

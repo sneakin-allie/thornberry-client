@@ -68,20 +68,22 @@ class AddSightingForm extends React.Component {
                             onChange={this.handleChange} 
                         />
                         <br />
-                        <label htmlFor="location">Location:</label>
+                        <label htmlFor="location">Location:*</label>
                         <input 
                             type="text" 
                             id="location" 
                             name="location" 
                             onChange={this.handleChange}
+                            required
                         />
                         <br />
-                        <label htmlFor="animal">Animal:</label>
+                        <label htmlFor="animal">Animal:*</label>
                         <input 
                             type="text" 
                             id="animal" 
                             name="animal"
                             onChange={this.handleChange} 
+                            required
                         />
                         <br />
                         <label htmlFor="notes">Notes:</label>
@@ -100,8 +102,9 @@ class AddSightingForm extends React.Component {
                             onChange={this.handleChange}
                         >
                         </input>
-                        <br />
-                        <button type="submit">Add sighting</button>
+                            <p><i>*Required fields</i></p>
+                            <div className="Error-message">{this.state.errorMessage}</div>
+                                <button type="submit">Add sighting</button>
                     </form>
             </div>
         );

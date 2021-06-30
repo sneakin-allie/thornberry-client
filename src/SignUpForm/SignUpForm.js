@@ -72,9 +72,13 @@ class SignUpForm extends React.Component {
                 })
                 .then(result => {
                     this.props.onSignUp(result);
-                    this.props.history.push('/add')
+                    this.props.history.push('/list')
                 })
-                .catch(error => this.setState({ error }))
+                .catch(error => {
+                    this.setState({
+                        errorMessage: "Email already exists"
+                    })
+                })
         }
     }
 
@@ -83,39 +87,44 @@ class SignUpForm extends React.Component {
             <div className="signup">
                 <h3>New User? Sign Up!</h3>
                     <form className="signup-form" onSubmit={this.handleSubmit}>
-                        <label htmlFor="first-name">First name:</label>
+                        <label htmlFor="first-name">First name:*</label>
                         <input 
                             type="text" 
                             id="first-name" 
                             name="firstName" 
                             onChange={this.handleChange} 
+                            required
                         />
                         <br />
-                        <label htmlFor="last-name">Last name:</label>
+                        <label htmlFor="last-name">Last name:*</label>
                         <input 
                             type="text" 
                             id="last-name" 
                             name="lastName"
                             onChange={this.handleChange}
+                            required
                         />
                         
                         <br />
-                        <label htmlFor="email">Email:</label>
+                        <label htmlFor="email">Email:*</label>
                         <input 
                             type="text" 
                             id="email" 
                             name="email" 
                             onChange={this.handleChange}
+                            required
                         />
                         <br />
-                        <label htmlFor="password">Password:</label>
+                        <label htmlFor="password">Password:*</label>
                         <input 
                             type="text" 
                             id="password" 
                             name="password" 
                             onChange={this.handleChange}
+                            required
                         />
-                        <div className="error-message">{this.state.errorMessage}</div>
+                        <p><i>*All fields required</i></p>
+                        <div className="Error-message">{this.state.errorMessage}</div>
                         <br />
                         <button type="submit">Sign up</button>
                     </form>
