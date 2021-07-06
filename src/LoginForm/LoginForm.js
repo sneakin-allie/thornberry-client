@@ -20,7 +20,6 @@ class LoginForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-
         const { email, password } = e.target;
         const existingUser = {
             email: email.value,
@@ -61,9 +60,9 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div className="login">
+            <div className="Login">
                 <h3>Existing User? Log In!</h3>
-                    <form className="login-form" onSubmit={this.handleSubmit}>
+                    <form className="Login-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="email">Email:*</label>
                         <input 
                             type="text" 
@@ -75,7 +74,7 @@ class LoginForm extends React.Component {
                         <br />
                         <label htmlFor="password">Password:*</label>
                         <input 
-                            type="text" 
+                            type="password" 
                             id="password" 
                             name="password" 
                             onChange={this.handleChange}

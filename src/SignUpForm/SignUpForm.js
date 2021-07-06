@@ -84,9 +84,9 @@ class SignUpForm extends React.Component {
 
     render() {
         return (
-            <div className="signup">
+            <div className="Signup">
                 <h3>New User? Sign Up!</h3>
-                    <form className="signup-form" onSubmit={this.handleSubmit}>
+                    <form className="Signup-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="first-name">First name:*</label>
                         <input 
                             type="text" 
@@ -104,7 +104,6 @@ class SignUpForm extends React.Component {
                             onChange={this.handleChange}
                             required
                         />
-                        
                         <br />
                         <label htmlFor="email">Email:*</label>
                         <input 
@@ -117,12 +116,13 @@ class SignUpForm extends React.Component {
                         <br />
                         <label htmlFor="password">Password:*</label>
                         <input 
-                            type="text" 
+                            type="password" 
                             id="password" 
                             name="password" 
                             onChange={this.handleChange}
                             required
                         />
+                        <p><i>Password must be at least 8 characters and contain at least one number</i></p>
                         <p><i>*All fields required</i></p>
                         <div className="Error-message">{this.state.errorMessage}</div>
                         <br />

@@ -22,9 +22,26 @@ class AddSightingForm extends React.Component {
         })
     }
 
+    uploadImage = e => {
+        const files = e.target.files;
+        const data = new FormData();
+        data.append("file", files[0]);
+        data.append("upload_preset", "sightingsimages")
+        
+        fetch("https://api.cloudinary.com/v1_1/thornberry/image/upload", {
+            method: 'POST',
+            body: data
+        })
+            .then(res => {
+                return res.text();
+            })
+            .then(data => {
+                console.log(data)
+            })
+    }
+
     handleSubmit = e => {
         e.preventDefault();
-
         const { date, location, animal, notes, photos } = e.target;
         const newSighting = { 
             date: date.value, 
@@ -97,14 +114,15 @@ class AddSightingForm extends React.Component {
                         <label htmlFor="photos">Photos:</label>
                         <input 
                             type="file"
-                            id="photos" 
-                            name="photos"
-                            onChange={this.handleChange}
+                            id="file" 
+                            name="file"
+                            placeholder="Upload an image"
+                            onChange={this.uploadImage}
                         >
                         </input>
                             <p><i>*Required fields</i></p>
                             <div className="Error-message">{this.state.errorMessage}</div>
-                                <button type="submit">Add sighting</button>
+                                <button type="submit">Add Sighting</button>
                     </form>
             </div>
         );
