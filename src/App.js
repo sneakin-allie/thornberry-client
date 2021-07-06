@@ -15,18 +15,21 @@ class App extends React.Component {
     this.state = {
       sightings: [],
       userInfo: {},
+      isLoggedIn: false
     }
   }
 
   handleSignUp = newUser => {
     this.setState({
-      userInfo: newUser
+      userInfo: newUser,
+      isLoggedIn: true
     })
   }
 
   handleLogin = existingUser => {
     this.setState({
-      userInfo: existingUser
+      userInfo: existingUser,
+      isLoggedIn: true
     })
   }
 
@@ -61,14 +64,15 @@ class App extends React.Component {
   }
 
   render() {
+    const isLoggedIn = this.state.isLoggedIn;
     return (
       <BrowserRouter>
         <div className="App">
           <nav>
-            <Route 
-              path="/"
-              component={Nav}
-            />
+            {isLoggedIn
+              ? <Route path="/" component={Nav} />
+              : null
+            }
           </nav>
           <header>
             <Header />
