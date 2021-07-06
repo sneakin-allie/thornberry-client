@@ -5,12 +5,10 @@ import config from '../config';
 class EditSightingForm extends React.Component {
     constructor(props) {
         super(props);
-
         this.date = React.createRef();
         this.location = React.createRef();
         this.animal = React.createRef();
         this.notes = React.createRef();
-        this.photos = React.createRef();
     }
 
     componentDidMount() {
@@ -34,7 +32,6 @@ class EditSightingForm extends React.Component {
                     location: results.location,
                     animal: results.animal,
                     notes: results.notes,
-                    photos: results.photos
                 })
             })
             .catch(error => this.setState({ error }))
@@ -48,7 +45,6 @@ class EditSightingForm extends React.Component {
             location: this.location.current.value,
             animal: this.animal.current.value,
             notes: this.notes.current.value,
-            photos: this.photos.current.value,
             id
         };
 
@@ -139,15 +135,6 @@ class EditSightingForm extends React.Component {
                             defaultValue={currentSighting.notes}
                             ref={this.notes}>
                         </textarea>
-                        <br />
-                        <label htmlFor="photos">Photos:</label>
-                        <input 
-                            type="file" 
-                            id="photos" 
-                            name="photos" 
-                            defaultValue={currentSighting.photos}
-                            ref={this.photos}
-                        />
                         <br />
                         <button 
                             onClick={this.handleUpdate}

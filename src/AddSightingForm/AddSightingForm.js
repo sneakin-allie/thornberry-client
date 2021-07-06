@@ -12,6 +12,8 @@ class AddSightingForm extends React.Component {
             notes: "",
             photos: "",
             id: "",
+            image: "",
+            url: "",
             errorMessage: null
         }
     }
@@ -27,17 +29,17 @@ class AddSightingForm extends React.Component {
         const data = new FormData();
         data.append("file", files[0]);
         data.append("upload_preset", "sightingsimages")
+        data.append("cloud_name", "thornberry")
         
         fetch("https://api.cloudinary.com/v1_1/thornberry/image/upload", {
             method: 'POST',
             body: data
         })
-            .then(res => {
-                return res.text();
-            })
+            .then(res => res.json())
             .then(data => {
-                console.log(data)
+                console.log("data:", data)
             })
+            .catch(err => console.log(err))
     }
 
     handleSubmit = e => {
@@ -51,6 +53,7 @@ class AddSightingForm extends React.Component {
             photos: photos.value,
             email: this.props.userInfo.email
         };
+
         // POST for a new sighting
         fetch(config.API_BASE_URL + `/api/sightings`, {
             method: 'POST',
@@ -69,7 +72,7 @@ class AddSightingForm extends React.Component {
                 this.props.onAddSighting(result)
                 this.props.history.push('/list')
             })
-            .catch(error => this.setState({ errorMessage: "Invalid credentials" }))
+            .catch(err => this.setState({ errorMessage: "Invalid credentials" }))
     }
 
     render() {
@@ -117,7 +120,7 @@ class AddSightingForm extends React.Component {
                             id="file" 
                             name="file"
                             placeholder="Upload an image"
-                            onChange={this.uploadImage}
+                            onChange={this.handleChange}
                         >
                         </input>
                             <p><i>*Required fields</i></p>
