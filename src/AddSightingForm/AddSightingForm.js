@@ -10,12 +10,10 @@ class AddSightingForm extends React.Component {
             location: "",
             animal: "",
             notes: "",
-            photos: "",
             id: "",
-            image: "",
-            url: "",
             errorMessage: null
         }
+        // this.fileInput = React.createRef();
     }
 
     handleChange = e => {
@@ -24,12 +22,14 @@ class AddSightingForm extends React.Component {
         })
     }
 
-    uploadImage = e => {
-        const files = e.target.files;
+    handleSubmit = e => {
+        e.preventDefault();
+        // below is trying to fetch Cloudinary
         const data = new FormData();
-        data.append("file", files[0]);
+        data.append("file", e.target.file[0]);
         data.append("upload_preset", "sightingsimages")
         data.append("cloud_name", "thornberry")
+        console.log("file:", e.target.file[0])
         
         fetch("https://api.cloudinary.com/v1_1/thornberry/image/upload", {
             method: 'POST',
@@ -40,17 +40,14 @@ class AddSightingForm extends React.Component {
                 console.log("data:", data)
             })
             .catch(err => console.log(err))
-    }
 
-    handleSubmit = e => {
-        e.preventDefault();
-        const { date, location, animal, notes, photos } = e.target;
+        // below is from original 
+        const { date, location, animal, notes } = e.target;
         const newSighting = { 
             date: date.value, 
             location: location.value, 
             animal: animal.value, 
             notes: notes.value, 
-            photos: photos.value,
             email: this.props.userInfo.email
         };
 
@@ -114,11 +111,12 @@ class AddSightingForm extends React.Component {
                         >
                         </textarea>
                         <br />
-                        <label htmlFor="photos">Photos:</label>
+                        <label htmlFor="photo">Photo:</label>
                         <input 
                             type="file"
                             id="file" 
                             name="file"
+                            ref={this.fileInput}
                             placeholder="Upload an image"
                             onChange={this.handleChange}
                         >
