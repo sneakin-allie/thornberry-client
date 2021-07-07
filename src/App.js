@@ -136,8 +136,8 @@ class App extends React.Component {
                   {...routeProps}
                   userInfo={this.state.userInfo}
                   sightings={this.state.sightings}
-                  nUpdateSighting={this.handleUpdateSighting}
-                  nDeleteSighting={this.handleDeleteSighting}
+                  onUpdateSighting={this.handleUpdateSighting}
+                  onDeleteSighting={this.handleDeleteSighting}
                 />
               } 
             />

@@ -37,16 +37,18 @@ class SightingsList extends React.Component {
             <div className="Sightings">
                 <h3 className="Welcome-banner"><i>Welcome, {this.props.userInfo.firstName}!</i></h3>
                 <h3 className="Sightings-banner">Sightings</h3>
-                    <div className="Add-new-sighting-button">
-                        <Link 
-                            to={{
-                                pathname: `/add`
-                            }}
-                        >
-                            <button type="button">
-                                Add New Sighting
-                            </button>
-                        </Link>
+                    <div className="Add-new-sighting-button-conainter">
+                        <div className="Add-new-sighting-button">
+                            <Link 
+                                to={{
+                                    pathname: `/add`
+                                }}
+                            >
+                                <button type="button">
+                                    Add New Sighting
+                                </button>
+                            </Link>
+                        </div>
                     </div>
                     <ul className="Sightings-list">
                         {this.props.sightings.map((sighting, i) =>

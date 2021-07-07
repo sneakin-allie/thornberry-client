@@ -1,4 +1,5 @@
 import React from 'react';
+import UploadWidget from '../UploadWidget';
 import { withRouter } from 'react-router-dom';
 import config from '../config';
 
@@ -11,11 +12,8 @@ class AddSightingForm extends React.Component {
             animal: "",
             notes: "",
             id: "",
-            imageUrl: null,
-            imageAlt: null,
             errorMessage: null
         }
-        this.fileInput = React.createRef();
     }
 
     handleChange = e => {
@@ -26,25 +24,6 @@ class AddSightingForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        // below is trying to fetch Cloudinary
-        const data = new FormData();
-        data.append("file", this.fileInput.current.files[0].name);
-        data.append("upload_preset", "sightingsimages")
-        
-        fetch("https://api.cloudinary.com/v1_1/thornberry/image/upload", {
-            method: 'POST',
-            body: data
-        })
-            .then(res => res.json())
-            .then(res => {
-                this.setState({
-                    imageUrl: res.secure_url,
-                    imageAlt: `An image of ${res.original_filename}`
-                })
-            })
-            .catch(err => console.log(err));
-
-        // below is from original 
         const { date, location, animal, notes } = e.target;
         const newSighting = { 
             date: date.value, 
@@ -53,8 +32,7 @@ class AddSightingForm extends React.Component {
             notes: notes.value, 
             email: this.props.userInfo.email
         };
-
-        // POST for a new sighting
+        // POST a new sighting
         fetch(config.API_BASE_URL + `/api/sightings`, {
             method: 'POST',
             body: JSON.stringify(newSighting),
@@ -76,12 +54,11 @@ class AddSightingForm extends React.Component {
     }
 
     render() {
-        const { imageUrl, imageAlt } = this.state;
-
         return (
-            <div className="add-new-sighting">
+            <div className="Add-new-sighting">
                 <h3>Add New Sighting</h3>
-                    <form className="add-new-sighting-form" onSubmit={this.handleSubmit}>
+                <div className="Form-container">
+                <form className="Add-new-sighting-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="date">Date:</label>
                         <input 
                             type="date" 
@@ -116,26 +93,19 @@ class AddSightingForm extends React.Component {
                         >
                         </textarea>
                         <br />
-                        <label htmlFor="photo">Photo:</label>
-                        <input 
-                            type="file"
-                            id="file" 
-                            name="file"
-                            className="cloudinary-filupload"
-                            ref={this.fileInput}
-                            placeholder="Upload an image"
-                        >
-                        </input>
-                            <p><i>*Required fields</i></p>
-                            <div className="Error-message">{this.state.errorMessage}</div>
-                                <button type="submit">Add Sighting</button>
+                        <UploadWidget />
+                        <p><i>*Required fields</i></p>
+                        <div className="Error-message">{this.state.errorMessage}</div>
+                        <div className="Button-container">
+                            <button
+                                className="Add-sighting-button" 
+                                type="submit"
+                            >
+                                Add Sighting
+                            </button>
+                        </div>
                     </form>
-                    <section>
-                        <p>Image to display here</p>
-                        {imageUrl && (
-                            <img src={imageUrl} alt={imageAlt} />
-                        )}
-                    </section>
+                </div>
             </div>
         );
     }

@@ -47,7 +47,6 @@ class EditSightingForm extends React.Component {
             notes: this.notes.current.value,
             id
         };
-
         // PATCH to update a sighting
         fetch(config.API_BASE_URL + `/api/sightings/${id}`, {
             method: 'PATCH',
@@ -100,6 +99,7 @@ class EditSightingForm extends React.Component {
         return (
             <div className="Edit-sighting">
                 <h3>Edit Sighting</h3>
+                <div className="Form-container">
                     <form className="Edit-sighting-form">
                         <label htmlFor="date">Date:</label>
                         <input 
@@ -115,7 +115,7 @@ class EditSightingForm extends React.Component {
                             type="text" 
                             id="location" 
                             name="location" 
-                            defaultValue={currentSighting.locatino}
+                            defaultValue={currentSighting.location}
                             ref={this.location}
                         />
                         <br />
@@ -136,17 +136,24 @@ class EditSightingForm extends React.Component {
                             ref={this.notes}>
                         </textarea>
                         <br />
-                        <button 
-                            onClick={this.handleUpdate}
-                            type="button">
-                            Update
-                        </button>
-                        <button
-                            onClick={this.handleDelete}
-                            type="button">
-                            Delete
-                        </button>
+                        <div className="Button-container">
+                            <button 
+                                className="Update-button"
+                                onClick={this.handleUpdate}
+                                type="button"
+                            >
+                                Update
+                            </button>
+                            <button
+                                className="Delete-button"
+                                onClick={this.handleDelete}
+                                type="button"
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </form>
+                </div>
             </div>
         );
     }
