@@ -15,6 +15,9 @@ class Nav extends React.Component {
                 <Link to="/add">
                     Add New Sighting
                 </Link>
+                <Link to='/upload'>
+                    Upload Photo
+                </Link>
                 <Link to='/'>
                     Log Out
                 </Link>

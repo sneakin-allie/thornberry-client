@@ -11,9 +11,11 @@ class AddSightingForm extends React.Component {
             animal: "",
             notes: "",
             id: "",
+            imageUrl: null,
+            imageAlt: null,
             errorMessage: null
         }
-        // this.fileInput = React.createRef();
+        this.fileInput = React.createRef();
     }
 
     handleChange = e => {
@@ -26,20 +28,21 @@ class AddSightingForm extends React.Component {
         e.preventDefault();
         // below is trying to fetch Cloudinary
         const data = new FormData();
-        data.append("file", e.target.file[0]);
+        data.append("file", this.fileInput.current.files[0].name);
         data.append("upload_preset", "sightingsimages")
-        data.append("cloud_name", "thornberry")
-        console.log("file:", e.target.file[0])
         
         fetch("https://api.cloudinary.com/v1_1/thornberry/image/upload", {
             method: 'POST',
             body: data
         })
             .then(res => res.json())
-            .then(data => {
-                console.log("data:", data)
+            .then(res => {
+                this.setState({
+                    imageUrl: res.secure_url,
+                    imageAlt: `An image of ${res.original_filename}`
+                })
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
 
         // below is from original 
         const { date, location, animal, notes } = e.target;
@@ -73,6 +76,8 @@ class AddSightingForm extends React.Component {
     }
 
     render() {
+        const { imageUrl, imageAlt } = this.state;
+
         return (
             <div className="add-new-sighting">
                 <h3>Add New Sighting</h3>
@@ -116,15 +121,21 @@ class AddSightingForm extends React.Component {
                             type="file"
                             id="file" 
                             name="file"
+                            className="cloudinary-filupload"
                             ref={this.fileInput}
                             placeholder="Upload an image"
-                            onChange={this.handleChange}
                         >
                         </input>
                             <p><i>*Required fields</i></p>
                             <div className="Error-message">{this.state.errorMessage}</div>
                                 <button type="submit">Add Sighting</button>
                     </form>
+                    <section>
+                        <p>Image to display here</p>
+                        {imageUrl && (
+                            <img src={imageUrl} alt={imageAlt} />
+                        )}
+                    </section>
             </div>
         );
     }
