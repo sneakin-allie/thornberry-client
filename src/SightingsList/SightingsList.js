@@ -29,7 +29,7 @@ class SightingsList extends React.Component {
             .then((results) => {
                 this.props.onDisplaySightings(results)
             })
-            .catch(error => this.setState({ error }))
+            .catch(err => this.setState({ err }))
     }
 
     render() {

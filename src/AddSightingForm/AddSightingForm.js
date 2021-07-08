@@ -1,6 +1,6 @@
 import React from 'react';
-import UploadWidget from '../UploadWidget';
 import { withRouter } from 'react-router-dom';
+import UploadWidget from '../UploadWidget/UploadWidget';
 import config from '../config';
 
 class AddSightingForm extends React.Component {
