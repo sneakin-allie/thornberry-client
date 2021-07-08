@@ -15,10 +15,12 @@ class UploadWidget extends React.Component {
             cloudName: "thornberry",
             uploadPreset: "sightingsimages"
         }, (error, result) => {
-            this.setState({
-                imageUrl: result.event.success.info.url,
-                imageAlt: `An image of ${result.event.success.info.original_filename}`
-            })
+            if (!error && result.event === "success") {
+                this.setState({
+                    imageUrl: result.info.url,
+                    imageAlt: result.info.original_filename
+                })
+            }
             console.log("result:", result)
         },).open();
     };
@@ -106,16 +108,9 @@ class UploadWidget extends React.Component {
                     >
                         Upload Photo
                     </button>
-                    <button 
-                        type="button" 
-                        className="Submit-button" 
-                        onClick={this.handleImageUpload}
-                    >
-                        Submit
-                    </button>
                 </form>
                 <div>
-                    <p>Photo preview:</p>
+                    <p>Preview:</p>
                     <img src={this.state.imageUrl} alt={this.state.imageAlt} />
                 </div>
             </div>
