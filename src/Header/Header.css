@@ -1,5 +1,11 @@
-/*
+.Header h1 {
+    text-align: center;
+    font-size: 48px;
+    margin: 10px;
+}
 
-CSS WILL BE ADDED HERE
-
-*/
+.Header h2 {
+    text-align: center;
+    font-size: 28px;
+    margin: 10px;
+}
