@@ -6,7 +6,7 @@
 }
 
 .Nav a:hover {
-  color: red;
+  color: goldenrod;
   text-decoration: solid;
 }
 
@@ -17,7 +17,7 @@
 .Nav {
   color: white;
   background-color: black;
-  padding: 5px;
+  padding: 8px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 16px;
 }

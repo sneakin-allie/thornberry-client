@@ -88,7 +88,7 @@ class LoginForm extends React.Component {
                                     className="Login-button"
                                     type="submit"
                                 >
-                                    Log in
+                                    Log In
                                 </button>
                             </div>
                     </form>

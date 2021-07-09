@@ -35,17 +35,22 @@ body {
 
 .App form {
     color: white;
-    margin: 20px;
-
+    margin: 20px 50px;
+    background-color: #0077be;
+    padding: 15px;
 }
 
 .App button {
-    background-color: lightblue;
+    background-color: white;
     color: black;
     border-radius: 3px;
-    padding: 5px;
+    padding: 8px;
     cursor: pointer;
     border: none;
+}
+
+.App button:hover {
+    background-color: goldenrod;
 }
 
 .App textarea {
