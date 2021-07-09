@@ -8,22 +8,25 @@ class SightingItem extends React.Component {
         return (
             <div className="Sighting">
                 <li>
-                    <p>Date: {this.props.sighting.date}</p>
+                    <p className="Animal">Animal: {this.props.sighting.animal}</p>
                     <p>Location: {this.props.sighting.location}</p>
-                    <p>Animal: {this.props.sighting.animal}</p>
+                    <p>Date: {this.props.sighting.date}</p>
                     <p>Notes: {this.props.sighting.notes}</p>
                     <img src={this.props.sighting.photos} alt="animal" />
                     <br />
-                    <Link 
-                        to={{
-                            pathname: `/edit/${this.props.sighting.id}`
-                        }}
-                    >   
-                            <button 
-                                type="button">
-                                Edit
-                            </button>
-                    </Link>
+                    <div className="Edit-button-container">
+                        <Link 
+                            to={{
+                                pathname: `/edit/${this.props.sighting.id}`
+                            }}
+                        >   
+                                <button
+                                    className="Edit-button" 
+                                    type="button">
+                                    Edit
+                                </button>
+                        </Link>
+                    </div>
                 </li>  
             </div>
         );

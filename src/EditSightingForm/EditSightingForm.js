@@ -100,7 +100,6 @@ class EditSightingForm extends React.Component {
         return (
             <div className="Edit-sighting">
                 <h3>Edit Sighting</h3>
-                <div className="Form-container">
                     <form className="Edit-sighting-form">
                         <label htmlFor="date">Date:</label>
                         <input 
@@ -154,7 +153,6 @@ class EditSightingForm extends React.Component {
                             </button>
                         </div>
                     </form>
-                </div>
             </div>
         );
     }

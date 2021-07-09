@@ -36,8 +36,8 @@ class SightingsList extends React.Component {
         return (
             <div className="Sightings">
                 <h3 className="Welcome-banner"><i>Welcome, {this.props.userInfo.firstName}!</i></h3>
-                <h3 className="Sightings-banner">Sightings</h3>
-                    <div className="Add-new-sighting-button-conainter">
+                <h3 className="Sightings-banner">Sightings List</h3>
+                    <div className="Add-new-sighting-button-container">
                         <div className="Add-new-sighting-button">
                             <Link 
                                 to={{
