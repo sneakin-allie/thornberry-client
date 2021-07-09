@@ -86,6 +86,7 @@ class SignUpForm extends React.Component {
         return (
             <div className="Signup">
                 <h3>New User? Sign Up!</h3>
+                <div className="Form-container">
                     <form className="Signup-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="first-name">First name:*</label>
                         <input 
@@ -125,9 +126,16 @@ class SignUpForm extends React.Component {
                         <p><i>Password must be at least 8 characters and contain at least one number</i></p>
                         <p><i>*All fields required</i></p>
                         <div className="Error-message">{this.state.errorMessage}</div>
-                        <br />
-                        <button type="submit">Sign up</button>
+                        <div className="Signup-button-container">
+                            <button 
+                                className="Signup-button"
+                                type="submit"
+                            >
+                                Sign up
+                            </button>
+                        </div>
                     </form>
+                </div>
             </div>    
         );
     }

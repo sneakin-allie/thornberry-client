@@ -62,6 +62,7 @@ class LoginForm extends React.Component {
         return (
             <div className="Login">
                 <h3>Existing User? Log In!</h3>
+                <div className="Form-container">
                     <form className="Login-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="email">Email:*</label>
                         <input 
@@ -80,11 +81,18 @@ class LoginForm extends React.Component {
                             onChange={this.handleChange}
                             required
                         />
-                            <p><i>*All fields required</i></p>
-                            <div className="Error-message">{this.state.errorMessage}</div>
-                            <br />
-                            <button type="submit">Log in</button>
+                        <p><i>*All fields required</i></p>
+                        <div className="Error-message">{this.state.errorMessage}</div>
+                            <div className="Login-button-container">
+                                <button 
+                                    className="Login-button"
+                                    type="submit"
+                                >
+                                    Log in
+                                </button>
+                            </div>
                     </form>
+                </div>
             </div>    
         );
     }

@@ -1,5 +1,36 @@
-/*
+.Login {
+    padding-bottom: 30px;
+}
 
-CSS WILL BE ADDED HERE
+.Login p {
+    font-size: 14px;
+    margin: 5px 0px;
+}
 
-*/
+.Form-container {
+    text-align: center;
+}
+
+.Login-form {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: inline-block;
+    text-align: left;
+    padding: 15px;
+    background: #fffcd3;
+    margin: 20px;
+}
+
+.Login-button-container {
+    height: 30px;
+    position: relative;
+}
+
+.Login-button {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

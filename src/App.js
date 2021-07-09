@@ -7,6 +7,7 @@ import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import AddSightingForm from './AddSightingForm/AddSightingForm';
 import EditSightingForm from './EditSightingForm/EditSightingForm';
+import './App.css';
 
 class App extends React.Component {
 

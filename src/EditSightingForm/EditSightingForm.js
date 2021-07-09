@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import config from '../config';
+import './EditSightingForm.css';
 
 class EditSightingForm extends React.Component {
     constructor(props) {
