@@ -37,7 +37,7 @@ body {
     color: white;
     margin: 20px 50px;
     background-color: #0077be;
-    padding: 15px;
+    padding: 15px 30px 15px 30px;
 }
 
 .App button {
@@ -54,18 +54,20 @@ body {
     background-color: goldenrod;
 }
 
-.App textarea {
-    margin: 3px 0px 0px 3px;
+.App input {
     border: 1px solid;
     border-radius: 3px;
     max-width: 100%;
     max-height: 100%;
+    margin: 8px 8px 8px 8px;
 }
 
-.App input {
-    margin: 3px;
+.App textarea {
     border: 1px solid;
     border-radius: 3px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 8px 8px 8px 0px;
 }
 
 .Error-message {
@@ -73,5 +75,5 @@ body {
     font-size: 14px;
     margin: 0px 0px 5px 0px;
     text-align: center;
-    color: #fd604e;
+    color: orangered;
 }

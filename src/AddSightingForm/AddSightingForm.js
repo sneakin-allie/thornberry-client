@@ -76,14 +76,14 @@ class AddSightingForm extends React.Component {
         return (
             <div className="Add-new-sighting">
                 <h3>Add New Sighting</h3>
-                <div className="Form-container">
                     <form className="Add-new-sighting-form" onSubmit={this.handleSubmit}>
-                        <label htmlFor="date">Date:</label>
+                        <label htmlFor="animal">Animal:*</label>
                         <input 
-                            type="date" 
-                            id="date" 
-                            name="date"
+                            type="text" 
+                            id="animal" 
+                            name="animal"
                             onChange={this.handleChange} 
+                            required
                         />
                         <br />
                         <label htmlFor="location">Location:*</label>
@@ -95,19 +95,23 @@ class AddSightingForm extends React.Component {
                             required
                         />
                         <br />
-                        <label htmlFor="animal">Animal:*</label>
+                        <label htmlFor="date">Date:*</label>
                         <input 
-                            type="text" 
-                            id="animal" 
-                            name="animal"
+                            type="date" 
+                            id="date" 
+                            name="date"
                             onChange={this.handleChange} 
                             required
                         />
                         <br />
                         <label htmlFor="notes">Notes:</label>
+                        <br />
                         <textarea 
                             id="notes" 
-                            name="notes" 
+                            name="notes"
+                            rows="5" 
+                            cols="40"
+                            placeholder="Comments on activity, behavior, appearance, etc..."
                             onChange={this.handleChange}
                         >
                         </textarea>
@@ -140,7 +144,6 @@ class AddSightingForm extends React.Component {
                             </button>
                         </div>
                     </form>
-                </div>
             </div>
         );
     }

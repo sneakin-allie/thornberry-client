@@ -101,13 +101,13 @@ class EditSightingForm extends React.Component {
             <div className="Edit-sighting">
                 <h3>Edit Sighting</h3>
                     <form className="Edit-sighting-form">
-                        <label htmlFor="date">Date:</label>
+                        <label htmlFor="animal">Animal:</label>
                         <input 
-                            type="date" 
-                            id="date" 
-                            name="date"
-                            defaultValue={currentSighting.date}
-                            ref={this.date}
+                            type="text" 
+                            id="animal" 
+                            name="animal"
+                            defaultValue={currentSighting.animal}
+                            ref={this.animal} 
                         />
                         <br />
                         <label htmlFor="location">Location:</label>
@@ -119,16 +119,17 @@ class EditSightingForm extends React.Component {
                             ref={this.location}
                         />
                         <br />
-                        <label htmlFor="animal">Animal:</label>
+                        <label htmlFor="date">Date:</label>
                         <input 
-                            type="text" 
-                            id="animal" 
-                            name="animal"
-                            defaultValue={currentSighting.animal}
-                            ref={this.animal} 
+                            type="date" 
+                            id="date" 
+                            name="date"
+                            defaultValue={currentSighting.date}
+                            ref={this.date}
                         />
                         <br />
                         <label htmlFor="notes">Notes:</label>
+                        <br />
                         <textarea 
                             id="notes" 
                             name="notes"
