@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import UploadWidget from '../UploadWidget/UploadWidget';
 import config from '../config';
+import './AddSightingForm.css'
 
 class AddSightingForm extends React.Component {
     constructor(props) {
@@ -11,8 +11,9 @@ class AddSightingForm extends React.Component {
             location: "",
             animal: "",
             notes: "",
+            photos: "",
             id: "",
-            errorMessage: null
+            errorMessage: null,
         }
     }
 
@@ -30,8 +31,11 @@ class AddSightingForm extends React.Component {
             location: location.value, 
             animal: animal.value, 
             notes: notes.value, 
+            photos: this.state.photos,
             email: this.props.userInfo.email
         };
+        console.log("newSighting:", newSighting)
+
         // POST a new sighting
         fetch(config.API_BASE_URL + `/api/sightings`, {
             method: 'POST',
@@ -50,15 +54,30 @@ class AddSightingForm extends React.Component {
                 this.props.onAddSighting(result)
                 this.props.history.push('/list')
             })
-            .catch(err => this.setState({ errorMessage: "Invalid credentials" }))
+            .catch(err => this.setState({ errorMessage: "Something went wrong. Try again later." }))
     }
 
+    openWidget = () => {
+        window.cloudinary.createUploadWidget({
+            cloudName: "thornberry",
+            uploadPreset: "sightingsimages"
+        }, (error, result) => {
+            if (!error && result.event === "success") {
+                this.setState({
+                    photos: result.info.url,
+                })
+            }
+        },).open();
+    };
+
     render() {
+        const photos = this.state.photos;
+
         return (
             <div className="Add-new-sighting">
                 <h3>Add New Sighting</h3>
                 <div className="Form-container">
-                <form className="Add-new-sighting-form" onSubmit={this.handleSubmit}>
+                    <form className="Add-new-sighting-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="date">Date:</label>
                         <input 
                             type="date" 
@@ -93,7 +112,23 @@ class AddSightingForm extends React.Component {
                         >
                         </textarea>
                         <br />
-                        <UploadWidget />
+                            <div className="Upload-widget">
+                                <div>
+                                    <button 
+                                        type="button" 
+                                        className="Widget-button" 
+                                        onClick={this.openWidget}
+                                    >
+                                        Upload Photo
+                                    </button>
+                                </div>
+                                {photos && 
+                                    <div>
+                                        <p>Photo preview:</p>
+                                        <img src={this.state.photos} alt="animal" />
+                                    </div>
+                                }
+                            </div>
                         <p><i>*Required fields</i></p>
                         <div className="Error-message">{this.state.errorMessage}</div>
                         <div className="Button-container">

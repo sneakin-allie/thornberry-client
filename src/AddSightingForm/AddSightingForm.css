@@ -1,5 +1,35 @@
-/*
+.Add-new-sighting-form img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
 
-CSS WILL BE ADDED HERE
+/*
+~~~ OTHER IDEAS ~~~
+
+Responsive Image
+
+If you want an image to scale down if it has to, 
+but never scale up to be larger than its original size, 
+add the following:
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+Center an Image
+
+To center an image, 
+set left and right margin to auto 
+and make it into a block element:
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
 */

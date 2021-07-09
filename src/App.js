@@ -7,7 +7,6 @@ import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import AddSightingForm from './AddSightingForm/AddSightingForm';
 import EditSightingForm from './EditSightingForm/EditSightingForm';
-import UploadWidget from './UploadWidget/UploadWidget';
 
 class App extends React.Component {
 
@@ -34,7 +33,6 @@ class App extends React.Component {
     })
   }
 
-  // display sightings WITH images here?
   handleDisplaySightings = results => {
     const sortedSightings = results.sort(function(a, b) {
       var c = new Date(a.date);
@@ -102,18 +100,6 @@ class App extends React.Component {
                   onLogin={this.handleLogin}
                   onAddSighting={this.handleAddSighting}
                   onUpdateSighting={this.handleUpdateSighting}
-                  onDisplaySightings={this.handleDisplaySightings}
-                />
-              } 
-            />
-            <Route 
-              path="/upload" 
-              render={(routeProps) => 
-                <UploadWidget 
-                  {...routeProps}
-                  userInfo={this.state.userInfo}
-                  sightings={this.state.sightings}
-                  onAddSighting={this.handleAddSighting}
                   onDisplaySightings={this.handleDisplaySightings}
                 />
               } 
