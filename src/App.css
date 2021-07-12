@@ -5,20 +5,15 @@ body {
 
 .App {
     box-sizing: border-box;
-}
-
-.App {
     display: flex;
     flex-direction: column;
+    background-color: rgb(42, 42, 71);
+    min-height: 100vh;
+    min-width: 100%;
 }
 
 .App > main {
     flex: 1;
-}
-
-.App {
-    background-color: rgb(42, 42, 71);
-    min-height: 100vh;
 }
 
 .App h3 {

@@ -8,13 +8,19 @@ class SightingItem extends React.Component {
         return (
             <div className="Sighting">
                 <li>
-                    <p className="Animal">Animal: {this.props.sighting.animal}</p>
-                    <p>Location: {this.props.sighting.location}</p>
-                    <p>Date: {this.props.sighting.date}</p>
-                    <p>Notes: {this.props.sighting.notes}</p>
-                    {this.props.sighting.photos && 
-                        <img src={this.props.sighting.photos} alt="animal" />
-                    }
+                    <div className="group">
+                        <div className="item-double">
+                            <p className="Animal">Animal: {this.props.sighting.animal}</p>
+                            <p>Location: {this.props.sighting.location}</p>
+                            <p>Date: {this.props.sighting.date}</p>
+                            <p>Notes: {this.props.sighting.notes}</p>
+                        </div>
+                        <div className="item-double">
+                            {this.props.sighting.photos && 
+                                <img src={this.props.sighting.photos} alt="animal" />
+                            }
+                        </div>
+                    </div>
                     <br />
                     <div className="Edit-button-container">
                         <Link 
