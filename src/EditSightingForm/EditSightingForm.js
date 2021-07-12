@@ -6,9 +6,10 @@ import './EditSightingForm.css';
 class EditSightingForm extends React.Component {
     constructor(props) {
         super(props);
-        this.date = React.createRef();
-        this.location = React.createRef();
+        this.state = {photos: ""};
         this.animal = React.createRef();
+        this.location = React.createRef();
+        this.date = React.createRef();
         this.notes = React.createRef();
     }
 
@@ -29,10 +30,10 @@ class EditSightingForm extends React.Component {
             })
             .then(results => {
                 this.setState({
-                    date: results.date,
-                    location: results.location,
                     animal: results.animal,
-                    notes: results.notes,
+                    location: results.location,
+                    date: results.date,
+                    notes: results.notes
                 })
             })
             .catch(error => this.setState({ error }))
@@ -42,12 +43,14 @@ class EditSightingForm extends React.Component {
         e.preventDefault();
         const { id } = this.props.match.params;
         const updatedSighting = {
-            date: this.date.current.value,
-            location: this.location.current.value,
             animal: this.animal.current.value,
+            location: this.location.current.value,
+            date: this.date.current.value,
             notes: this.notes.current.value,
+            photos: this.state.photos,
             id
         };
+        console.log("updatedSighting:", updatedSighting)
         // PATCH to update a sighting
         fetch(config.API_BASE_URL + `/api/sightings/${id}`, {
             method: 'PATCH',
@@ -91,11 +94,25 @@ class EditSightingForm extends React.Component {
             })
     }
 
+    openWidget = () => {
+        window.cloudinary.createUploadWidget({
+            cloudName: "thornberry",
+            uploadPreset: "sightingsimages"
+        }, (error, result) => {
+            if (!error && result.event === "success") {
+                this.setState({
+                    photos: result.info.url,
+                })
+            }
+        },).open();
+    };
+
     render() {
         const id = this.props.match.params.id;
         const currentSighting = this.props.sightings.find(sighting => 
             (Number(sighting.id) === Number(id))
         )
+        const newPhoto = this.state.photos;
 
         return (
             <div className="Edit-sighting">
@@ -137,6 +154,23 @@ class EditSightingForm extends React.Component {
                             ref={this.notes}>
                         </textarea>
                         <br />
+                        <div className="Upload-widget">
+                                <div>
+                                    <button 
+                                        type="button" 
+                                        className="Widget-button" 
+                                        onClick={this.openWidget}
+                                    >
+                                        Upload Photo
+                                    </button>
+                                </div>
+                                {newPhoto && 
+                                    <div>
+                                        <p>Photo preview:</p>
+                                        <img src={this.state.photos} alt="animal" />
+                                    </div>
+                                }
+                        </div>
                         <div className="Button-container">
                             <button 
                                 className="Update-button"

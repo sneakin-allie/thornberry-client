@@ -12,7 +12,9 @@ class SightingItem extends React.Component {
                     <p>Location: {this.props.sighting.location}</p>
                     <p>Date: {this.props.sighting.date}</p>
                     <p>Notes: {this.props.sighting.notes}</p>
-                    <img src={this.props.sighting.photos} alt="animal" />
+                    {this.props.sighting.photos && 
+                        <img src={this.props.sighting.photos} alt="animal" />
+                    }
                     <br />
                     <div className="Edit-button-container">
                         <Link 

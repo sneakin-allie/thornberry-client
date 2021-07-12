@@ -34,7 +34,6 @@ class AddSightingForm extends React.Component {
             photos: this.state.photos,
             email: this.props.userInfo.email
         };
-        console.log("newSighting:", newSighting)
 
         // POST a new sighting
         fetch(config.API_BASE_URL + `/api/sightings`, {
@@ -116,23 +115,23 @@ class AddSightingForm extends React.Component {
                         >
                         </textarea>
                         <br />
-                            <div className="Upload-widget">
-                                <div>
-                                    <button 
-                                        type="button" 
-                                        className="Widget-button" 
-                                        onClick={this.openWidget}
-                                    >
-                                        Upload Photo
-                                    </button>
-                                </div>
-                                {photos && 
-                                    <div>
-                                        <p>Photo preview:</p>
-                                        <img src={this.state.photos} alt="animal" />
-                                    </div>
-                                }
+                        <div className="Upload-widget">
+                            <div>
+                                <button 
+                                    type="button" 
+                                    className="Widget-button" 
+                                    onClick={this.openWidget}
+                                >
+                                    Upload Photo
+                                </button>
                             </div>
+                            {photos && 
+                                <div>
+                                    <p>Photo preview:</p>
+                                    <img src={this.state.photos} alt="animal" />
+                                </div>
+                            }
+                        </div>
                         <p><i>*Required fields</i></p>
                         <div className="Error-message">{this.state.errorMessage}</div>
                         <div className="Button-container">
