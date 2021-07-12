@@ -12,9 +12,13 @@ It is hosted on Vercel.
 
 THORNBERRY has four main page branches. The Home/Landing Page, Sightings List Page, Add New Sighting Page, and Edit Sighting Page.
 
-The Home/Landing Page has concise instructions on what the application does and how to get started, as well as Sign Up and Log In forms for new users and existing users respectively. 
+The Home/Landing Page has concise instructions on what the application does and how to get started, as well as Sign Up and Log In forms for new users and existing users respectively. See below:
 
-The Sightings List Page lists a user's animal sightings with any previously saved details that the user input. The top of the page has an "Add New Sighting" button for easy access and each sighting listed has an "Edit" button so that users can edit fields as desired.
+![Screen Shot 2021-07-12 at 12 09 47 PM](https://user-images.githubusercontent.com/68669789/125321473-b8878780-e30a-11eb-86c4-75c081e614bc.png)
+
+The Sightings List Page lists a user's animal sightings with any previously saved details that the user input. The top of the page has an "Add New Sighting" button for easy access and each sighting listed has an "Edit" button so that users can edit fields as desired. See below:
+
+
 
 The Add New Sighting Page displays a form where a user can enter information about a sighting, including the animal, location, date, photos, and notes about activity, behavior, appearance, etc. Only the animal, location, and date are required at first so that a user can quickly save a sighting and return to it later to add notes. The Cloudinary Widget was used to allow users to upload photos from their personal camera roll.
 
