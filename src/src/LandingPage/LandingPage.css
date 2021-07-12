@@ -1,0 +1,28 @@
+.Landing-page h3 {
+    margin: 0px 0px 0px 0px;
+    padding: 10px;
+}
+
+.Landing-page p {
+    margin: 20px;
+    color: white;
+}
+
+/* Groups & Items (Mobile first) */
+
+.group {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-double {
+    flex: 1;
+}
+
+/* Groups & Items (Desktop) */
+
+@media all and (min-width: 800px) {
+    .group {
+        flex-direction: row;
+    }
+}

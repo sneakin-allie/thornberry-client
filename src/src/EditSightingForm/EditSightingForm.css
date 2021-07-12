@@ -1,0 +1,68 @@
+.Edit-sighting h3 {
+    margin: 0px 0px 0px 0px;
+    padding: 10px;
+}
+
+.Edit-sighting p {
+    font-size: 14px;
+    margin: 8px 0px;
+    color: white;
+}
+
+.Edit-sighting-form img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
+
+.Edit-sighting-form {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: block;
+    text-align: left;
+    color: white;
+    margin: 20px 50px;
+    background-color: #0077be;
+    padding: 15px 30px 15px 30px;
+}
+
+.Edit-sighting-form input {
+    border: 1px solid;
+    border-radius: 3px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 8px 8px 8px 8px;
+}
+
+.Edit-sighting-form textarea {
+    border: 1px solid;
+    border-radius: 3px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 8px 8px 8px 0px;
+}
+
+.Button-container {
+    height: 40px;
+    position: relative;
+}
+
+.Update-button {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.Delete-button {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
