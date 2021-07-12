@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Capstone #2: THORNBERRY
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This full stack application was made as my second capstone project for the Bloc/Thinkful Web Development course. It is a wildlife tracker application to be used by people passionate about wildlife that allows for the tracking of animal sightings and details about each sighting. Users can upload information about the animal, location, date, photos, and notes about activity, behavior, appearance, etc. Inspiration for this application came from my parents' need to keep track of bird and bear activity in their backyard. This application was built to meet the specifications laid out by the Bloc/Thinkful course. The project's server-side code can be viewed on its GitHub repository here: https://github.com/sneakin-allie/thornberry-api
 
-## Available Scripts
+## Live Application
 
-In the project directory, you can run:
+This application can be viewed here:  https://wildlifer-client-sneakin-allie.vercel.app
 
-### `yarn start`
+It is hosted on Vercel.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Summary
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+THORNBERRY has four main page branches. The Home/Landing Page, Sightings List Page, Add New Sighting Page, and Edit Sighting Page.
 
-### `yarn test`
+The Home/Landing Page has concise instructions on what the application does and how to get started, as well as Sign Up and Log In forms for new users and existing users respectively. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The Sightings List Page lists a user's sightings with any previously recorded details. The top of the page has an "Add New Sighting" button for easy access and each sighting listed has an "Edit" button so that users can edit fields as desired.
 
-### `yarn build`
+The Add New Sighting Page displays a form where a user can enter information about a sighting, including the animal, location, date, photos, and notes. Only the animal, location, and date are required at first so that a user can quickly save a sighting and return to it later to add notes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Edit Sighting Page displays a form where a user can update information about a sighting that has been saved. The input fields auto-fill with the previously saved information so the user can make edits where desired while keeping the rest of the input fields in tack. At the bottom of the form, there is a "Delete" button that deletes the sighting from the collection.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Process
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The design and implementation of this application went through multiple steps, each of which was approved by the grading team along the way. First, I wrote a proposal describing my project idea and the name for my application. Next, I wrote user stories to guide in development and edited the list to conform with the Pareto Principle, also known as the 80-20 rule. Then, I set up a Kanban board to manage my project and used it to keep track of my user stories and any issues with the application. Next, I created user flows and wireframes. This included creating a screen inventory, HTML wireframes for each page using HTML and CSS, and user flows for each wireframe. Using the wireframes and user flows, I built and implemented a static version of the client-side. I presented this to users to get initial feedback and did a round of iteration to address issues that came up. Next, I implemented the full MVP of the application, including the API and database. Once again, I did a final round of collecting user feedback and iterating. Finally, I styled the application with typography, color, and a responsive layout.
 
-### `yarn eject`
+## Technology Used
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The front-end of this project was built in React, using Router, class components, state, props, and vanilla CSS. An API was created that handled all promises necessary to interact with the back-end API database.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The back-end of this project was built using Node.js, Express, PostgreSQL, and Knex. RESTful APIs were used along with middleware including Morgan, Express.json, Helmet, and CORS. CORS was implemented to ensure connection between the front-end application and back-end API.
