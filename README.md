@@ -1,6 +1,6 @@
-# Capstone #2: THORNBERRY
+# Capstone 2: THORNBERRY
 
-This full stack application was made as my second capstone project for the Bloc/Thinkful Web Development course. It is a wildlife tracker application to be used by nature lovers that allows for the tracking of animal sightings and details about each sighting. Users can upload information about the animal, location, date, photos, and notes. Inspiration for this application came from my parents' need to keep track of bird and bear activity in their backyard. This application was built to meet the specifications laid out by the Bloc/Thinkful course. The project's server-side code can be viewed on its GitHub repository here: https://github.com/sneakin-allie/thornberry-api
+This full stack application was made as my second capstone project for the Bloc/Thinkful Web Development course. It is a wildlife tracker application that nature lovers can use to keep track of animal sightings. Users can upload information about the animal, location, date, notes, and a photo through the Cloudinary Widget. Inspiration for this application came from my parents' need to keep track of bird and bear activity in their backyard. This application was built to meet the specifications laid out by the Bloc/Thinkful course. The project's server-side code can be viewed on its GitHub repository here: https://github.com/sneakin-allie/thornberry-api
 
 ## Live Application
 
@@ -30,7 +30,7 @@ The Edit Sighting Page displays a form where a user can update information about
 
 ## Process
 
-The design and implementation of this application went through multiple steps, each of which was approved by the grading team along the way. First, I wrote a proposal describing my project idea and the name for my application. Next, I wrote user stories to guide in development and edited the list to conform with the Pareto Principle, also known as the 80-20 rule. Then, I set up a Kanban board to manage my project and used it to keep track of my user stories and any issues with the application. Next, I created user flows and wireframes. This included creating a screen inventory, HTML wireframes for each page using HTML and CSS, and user flows for each wireframe. Using the wireframes and user flows, I built and implemented a static version of the client-side. I presented this to users to get initial feedback and did a round of iteration to address issues that came up. Next, I implemented the full MVP of the application, including the API and database. Once again, I did a final round of collecting user feedback and iterating. Finally, I styled the application with typography, color, and a responsive layout.
+The design and implementation of this application went through multiple steps, each of which was approved by the grading team in intervals. I wrote a proposal and user stories, set up a Kanban board to manage my project, and created user flows and wireframes. The first version I built was a static version of the client-side application in React, and I presented this to users to do the first round of feedback and iteration. I implemented the full MVP of the application, including the API and database, and did a second round of feedback and iteration. Finally, I styled the application with typography, color, and a responsive layout.
 
 ## Technology Used
 
