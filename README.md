@@ -18,11 +18,15 @@ The Home/Landing Page has concise instructions on what the application does and 
 
 The Sightings List Page lists a user's animal sightings with any previously saved details that the user input. The top of the page has an "Add New Sighting" button for easy access and each sighting listed has an "Edit" button so that users can edit fields as desired. See below:
 
+![Screen Shot 2021-07-12 at 4 17 54 PM](https://user-images.githubusercontent.com/68669789/125350430-bb936f80-e32c-11eb-9545-bc89e6bd7b9f.png)
 
+The Add New Sighting Page displays a form where a user can enter information about a sighting, including the animal, location, date, photos, and notes about activity, behavior, appearance, etc. Only the animal, location, and date are required at first so that a user can quickly save a sighting and return to it later to add notes. The Cloudinary Widget was used to allow users to upload photos from their personal camera roll. See below:
 
-The Add New Sighting Page displays a form where a user can enter information about a sighting, including the animal, location, date, photos, and notes about activity, behavior, appearance, etc. Only the animal, location, and date are required at first so that a user can quickly save a sighting and return to it later to add notes. The Cloudinary Widget was used to allow users to upload photos from their personal camera roll.
+![Screen Shot 2021-07-12 at 4 18 52 PM](https://user-images.githubusercontent.com/68669789/125350538-de258880-e32c-11eb-8a05-75c0d0d71361.png)
 
 The Edit Sighting Page displays a form where a user can update information about a sighting that has been saved. The input fields auto-fill with the previously saved information so the user can make edits where desired while keeping the rest of the input fields in tack. At the bottom of the form, there is a "Delete" button that deletes the sighting from the collection.
+
+See below: ![Screen Shot 2021-07-12 at 4 20 01 PM](https://user-images.githubusercontent.com/68669789/125350657-0a410980-e32d-11eb-8790-16c7d5c47499.png)
 
 ## Process
 
