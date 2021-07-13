@@ -1,6 +1,6 @@
 .Signup p {
     font-size: 14px;
-    margin: 5px 0px;
+    margin: 10px;
     color: white;
 }
 
@@ -19,9 +19,9 @@
 .Signup-form input {
     border: 1px solid;
     border-radius: 3px;
-    max-width: 100%;
+    width: 50%;
     max-height: 100%;
-    margin: 8px 8px 8px 8px;
+    margin: 5px;
 }
 
 .Signup-button-container {
